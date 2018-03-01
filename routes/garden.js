@@ -1,12 +1,16 @@
-var express = require('express');
+import express from 'express'
+import Garden from '../src/controller/Garden'
+
+// var express = require('express');
+// var Garden = require('../src/controller/Garden')
+
 var router = express.Router();
 
-var Garden = require('../src/controller/Garden')
-
 router.get('/on', function(req, res, next) {
+  console.log('request /on')
+
   var uptime = req.query.uptime;
   var garden = new Garden();
-  console.log('fooo')
   if (uptime) {
     garden.on(uptime);
     res.json({
