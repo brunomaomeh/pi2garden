@@ -7,8 +7,6 @@ import Garden from '../src/controller/Garden'
 var router = express.Router();
 
 router.get('/on', function(req, res, next) {
-  console.log('request /on')
-
   var uptime = req.query.uptime;
   var garden = new Garden();
   if (uptime) {
