@@ -1,32 +1,25 @@
 import five from 'johnny-five'
 import Raspi from 'raspi-io'
 
-// var five = require('johnny-five')
-// var Raspi = require('raspi-io')
-
-var board = new five.Board({
+let board = new five.Board({
   io: new Raspi()
 });
 
 export default class Garden {
-  // board = new five.Board({
-	//   io: new Raspi()
-  // });
+  constructor(name) {
+    this.led = new five.Led("P1-13");
+  }
 
   on(uptime) {
-    console.log('garden on!!!')
-    var led = new five.Led("P1-13");
-    led.write(1);
+    this.led.write(1);
+    console.log("garden turned on!");
 	  setTimeout(function() {
-	    led.write(0);
+	    this.off()
     }, uptime);
   }
 
   off() {
-    var led = new five.Led("P1-13");
-    led.write(0);
-    console.log("Iniciou!");
+    this.led.write(0);
+    console.log("garden turned off!");
   }
 }
-
-// module.exports = Garden;
