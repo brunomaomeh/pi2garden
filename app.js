@@ -50,10 +50,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-let board = new five.Board({
-  io: new Raspi()
-});
-
-new Garden().off();
-
 module.exports = app;

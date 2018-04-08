@@ -1,5 +1,11 @@
 import five from 'johnny-five'
 
+let board = new five.Board({
+  io: new Raspi()
+});
+
+new Garden().off();
+
 export default class Garden {
   constructor() {
     this.led = new five.Led("P1-13");
