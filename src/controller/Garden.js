@@ -1,5 +1,3 @@
-import five from 'johnny-five'
-
 export default class Garden {
   constructor() {
     this.led = new five.Led("P1-13");

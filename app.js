@@ -11,6 +11,7 @@ var index = require('./routes/index');
 var garden = require('./routes/garden')
 
 var Raspi = require('raspi-io')
+var five = require('johnny-five')
 
 var app = express();
 
