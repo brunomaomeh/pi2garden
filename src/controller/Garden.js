@@ -6,7 +6,7 @@ export default class Garden {
   }
 
   on(uptime) {
-    this.led.write(1);
+    this.led.write(0);
     console.log("garden turned on!");
     setTimeout(() => {
       this.off()
@@ -14,7 +14,7 @@ export default class Garden {
   }
 
   off() {
-    this.led.write(0);
+    this.led.write(1);
     console.log("garden turned off!");
   }
 }
