@@ -10,6 +10,8 @@ var logger = require('morgan');
 var index = require('./routes/index');
 var garden = require('./routes/garden')
 
+var Raspi = require('raspi-io')
+
 var app = express();
 
 // view engine setup
@@ -43,6 +45,10 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+let board = new five.Board({
+  io: new Raspi()
 });
 
 module.exports = app;
