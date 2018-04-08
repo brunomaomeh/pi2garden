@@ -2,14 +2,11 @@ import five from 'johnny-five'
 
 export default class Garden {
   constructor() {
-    this.led = new five.Relay({
-      type: "NA",
-      pit: 17
-    });
+    this.led = new five.Led("P1-13");
   }
 
   on(uptime) {
-    this.led.on();
+    this.led.write(0);
     console.log("garden turned on!");
     setTimeout(() => {
       this.off()
@@ -17,7 +14,7 @@ export default class Garden {
   }
 
   off() {
-    this.led.off();
+    this.led.write(1);
     console.log("garden turned off!");
   }
 }

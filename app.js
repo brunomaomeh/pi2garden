@@ -10,9 +10,10 @@ var logger = require('morgan');
 var index = require('./routes/index');
 var garden = require('./routes/garden')
 
-// var Raspi = require('raspi-io')
-// var five = require('johnny-five')
-var defaultIO = require('./src/five-config/fiveConfig')
+var Raspi = require('raspi-io')
+var five = require('johnny-five')
+var Garden = require('./src/controller/Garden')
+// var defaultIO = require('./src/five-config/fiveConfig')
 
 var app = express();
 
@@ -49,8 +50,10 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-//let board = new five.Board({
-//  io: new Raspi()
-//});
+let board = new five.Board({
+  io: new Raspi()
+});
+
+new Garden().off();
 
 module.exports = app;
